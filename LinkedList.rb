@@ -70,7 +70,11 @@ class LinkedList
 	end
 
 	#removes current tail object
-	def pop	
+	def pop
+	@new_tail = at((size) - 2)
+	@new_tail.next_node = nil
+
+	@tail = @new_tail	
 	end
 
 	#searches the list for a node containing given data, returns true if found
