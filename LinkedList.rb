@@ -112,7 +112,7 @@ class LinkedList
 		end
 	end
 
-	#represents list object as string data.
+	#represents list object as string data
 	def to_s
 		@current_node = @head
 		@list_string = ""
@@ -129,7 +129,17 @@ class LinkedList
 	end
 
 	#insert new data node at given index
-	def insert_at(index)
+	def insert_at(data, index)
+		@current_node = at(index)
+		@insert_node = Node.new(data, @current_node)
+
+		#Handeling the case that user insert node at head position (even though prepend exists for that)
+		if @current_node != @head
+			@old_link_node = at(index - 1)
+			@old_link_node.next_node = @insert_node
+		else
+			@head = @insert_node
+		end
 	end
 
 	#removes data node at given index

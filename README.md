@@ -17,6 +17,7 @@ http://www.theodinproject.com/ruby-programming/linked-lists
 **contains?(data):** Searches for a node object containig data. Returns true if that object is found, false if not.
 **find(data):** Searches for a node object containing data. Returns the index (see at(index)) of the node object if found, returns nil if not.
 **to_s:** Returns a string which represents the LinkedList object in the following form: "head data -> data -> ... -> data -> nil"
+**insert_at(data, index):** Inserts data in new Node object created at the index position in the LinkedList object. The old Node object at the index position is pushed up.
 
 ######Current working methods for the internal Node class
 LinkedList contains an internal Node class where the data and the link to the next Node object is stored. This data is accessible with the following methods:
