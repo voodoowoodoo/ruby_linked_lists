@@ -70,15 +70,46 @@ class LinkedList
 	end
 
 	#removes current tail object
-	def pop
+	def pop	
 	end
 
-	#searches for a node containing given data, returns true if found
+	#searches the list for a node containing given data, returns true if found
 	def contains?(data)
+		@current_node = @head
+		
+		while @current_node.next_node != nil
+			if @current_node.data == data 
+				return true
+			else @current_node = @current_node.next_node
+			end
+		end
+
+		if @current_node.data == data #Checks the current tail node
+			return true
+		else 
+			return false
+		end
 	end
 
 	#searches for a node containing gives data, returns index if found
 	def find(data)
+		@current_node = @head
+		@index = 0
+
+		while @current_node.next_node != nil
+			if @current_node.data == data
+				return index
+			else
+				@index += 1
+				@current_node = @current_node.next_node
+			end
+		end
+
+		if @current_node.data == data #Checks the current tail node
+			return @index
+		else
+			return nil
+		end
 	end
 
 	#represents list object as string data.
