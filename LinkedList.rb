@@ -8,34 +8,65 @@ class LinkedList
 		attr_accessor :data, :next_node
 
 		#Sets default values for class variables
-		def initialize
-			@data = nil
-			@next_node = nil
+		def initialize(data = nil, next_node = nil)
+			@data = data
+			@next_node = next_node
 		end
+	end
+
+	#Creates the list object.
+	def initialize(data)
+		@head = Node.new(data, nil)
+		@tail = @head
 	end
 
 	#Adds a new node to the tail of the list object
 	def append(data)
+		@tail.next_node = Node.new(data, nil)
+		@tail = @tail.next_node
 	end
 
 	#Adds a new node to the head of the list object
 	def prepend(data)
+		@previous_head = @head
+		@head = Node.new(data, @previous_head)
 	end
 
 	#returns the amount of nodes in the list object
 	def size
+		@node_amount = 1
+		@current_node = @head
+		
+		if @head == @tail
+			return @node_amount
+		else
+			while @current_node != @tail
+				@current_node = @current_node.next_node
+				@node_amount += 1
+			end
+			return @node_amount
+		end
 	end
 
-	#returns the head node in the list object
+	#returns the head node object in the list object
 	def head
+		return @head
 	end
 
-	#returns the tail node in the list object
+	#returns the tail node object in the list object
 	def tail
+		return @tail
 	end
 
-	#returns the node at given index
+	#returns the node at given index. Head object is index 0
 	def at(index)
+		@current_node = @head
+
+		index.times do 
+			@current_node = @current_node.next_node
+		end
+
+		return @current_node
 	end
 
 	#removes current tail object
