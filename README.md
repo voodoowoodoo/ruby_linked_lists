@@ -13,7 +13,7 @@ http://www.theodinproject.com/ruby-programming/linked-lists
 **head:** Returns the node object at the head of the LinkedList object.
 **tail:** Returns the node object at the tail of the LinkedList object. 
 **at(index):** Returns the node object at the given index (head object is index 0).
-**pop:** Removes current tail node object. New tail node object is now the previous second to last node object. 
+**pop:** Removes current tail node object. New tail node object is now the previous second to last node object. If only one node object is present in the linked list object, this methods does nothing.
 **contains?(data):** Searches for a node object containig data. Returns true if that object is found, false if not.
 **find(data):** Searches for a node object containing data. Returns the index (see at(index)) of the node object if found, returns nil if not.
 **to_s:** Returns a string which represents the LinkedList object in the following form: "head data -> data -> ... -> data -> nil"
