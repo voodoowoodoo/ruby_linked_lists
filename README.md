@@ -1,11 +1,11 @@
 #Linked Lists In Ruby!
-######General Info
+###General Info
 This repository contains ruby code designed to implement linked lists, as practice with dynamic data structures.
 
 This little exercise was performed as part of The Odin Project, for more info see:
 http://www.theodinproject.com/ruby-programming/linked-lists
 
-####Current working methods for the LinkedList class:
+###Current working methods for the LinkedList class:
 **new(data):** Creates a new LinkedList object with 1 node containing data and a link to nil.
 
 **append(data):** Creates a new node object at the tail of the LinkedList object containing data and a link to nil.
@@ -32,7 +32,7 @@ http://www.theodinproject.com/ruby-programming/linked-lists
 
 **remove_at(index)** Removes node object at the index position in the LinkedList object. When removing the head or the tail Node object, the second or second to last node objects become the new head or tail respectivly. 
 
-####Current working methods for the internal Node class
+###Current working methods for the internal Node class
 LinkedList objects contain an internal Node class where the data and the link to the next Node object is stored. This data is accessible with the following methods:
 
 **data:** Returns the data of the currently selected Node.
