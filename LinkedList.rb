@@ -36,16 +36,12 @@ class LinkedList
 	def size
 		@node_amount = 1
 		@current_node = @head
-		
-		if @head == @tail
-			return @node_amount
-		else
-			while @current_node != @tail
-				@current_node = @current_node.next_node
-				@node_amount += 1
-			end
-			return @node_amount
+
+		while @current_node != @tail
+			@current_node = @current_node.next_node
+			@node_amount += 1
 		end
+		return @node_amount
 	end
 
 	#returns the head node object in the list object
@@ -95,7 +91,7 @@ class LinkedList
 		end
 	end
 
-	#searches for a node containing gives data, returns index if found
+	#searches for a node containing given data, returns index if found
 	def find(data)
 		@current_node = @head
 		@index = 0
@@ -118,6 +114,18 @@ class LinkedList
 
 	#represents list object as string data.
 	def to_s
+		@current_node = @head
+		@list_string = ""
+
+		while @current_node.next_node != nil
+			@list_string = @list_string + "#{@current_node.data} -> "
+			@current_node = @current_node.next_node
+		end
+		if @current_node.next_node == nil #appends the tail to the string representation
+			@list_string = @list_string + "#{@current_node.data} -> nil"
+		end
+
+		return @list_string
 	end
 
 	#insert new data node at given index
