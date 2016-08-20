@@ -133,7 +133,7 @@ class LinkedList
 		@current_node = at(index)
 		@insert_node = Node.new(data, @current_node)
 
-		#Handeling the case that user insert node at head position (even though prepend exists for that)
+		#Handeling the case that user inserts a node at head position (even though prepend exists for that)
 		if @current_node != @head
 			@old_link_node = at(index - 1)
 			@old_link_node.next_node = @insert_node
@@ -144,5 +144,21 @@ class LinkedList
 
 	#removes data node at given index
 	def remove_at(index)
+		@current_node = at(index)
+
+		if @current_node != @head
+			@previous_node = at(index - 1)
+
+			if @current_node != @tail
+				@previous_node.next_node = at(index + 1)
+			else
+				@previous_node.next_node = nil
+				@previous_node = @tail
+			end
+			@current_node = nil
+		else
+			@head = at(index + 1)
+			@current_node = nil
+		end
 	end
 end
